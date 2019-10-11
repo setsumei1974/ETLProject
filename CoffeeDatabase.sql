@@ -24,8 +24,10 @@ Country VARCHAR,
 Alpha2 VARCHAR
 );
 
-SELECT coffee_production.Country, coffee_production.Year, coffee_production.Total_Production, coffee_production.Exportable_Production, starbucks_locations.Store, starbucks_locations.City FROM coffee_production
+SELECT coffee_production.Country, coffee_production.Year, coffee_production.Total_Production, coffee_production.Exportable_Production, starbucks_locations.Store, starbucks_locations.City 
+FROM coffee_production
 JOIN conversion_table
-    ON coffee_production.Country = conversion_table.Country
-JOIN starbucks_locations
-	On conversion_table.Alpha2 = starbucks_locations.Country;
+	ON coffee_production.Country = conversion_table.Country
+JOIN  starbucks_locations 
+	ON conversion_table.Alpha2 = starbucks_locations.Country;
+
