@@ -3,31 +3,28 @@ DROP TABLE IF EXISTS starbucks_locations CASCADE;
 DROP TABLE IF EXISTS conversion_table CASCADE;
 
 CREATE TABLE coffee_production (
-id INT PRIMARY KEY,
-Country VARCHAR,
-Year VARCHAR,
-Total_Production FLOAT,
-Exportable_Production FLOAT
+country VARCHAR,
+year VARCHAR,
+totalproduction FLOAT,
+exportableproduction FLOAT
 );
 
 CREATE TABLE starbucks_locations (
-id INT PRIMARY KEY,
-Store VARCHAR,
-City VARCHAR,
-State_Province VARCHAR,
-Country VARCHAR
+store VARCHAR,
+city VARCHAR,
+stateprovince VARCHAR,
+country VARCHAR
 );
 
 CREATE TABLE conversion_table (
-id INT PRIMARY KEY,
-Country VARCHAR,
-Alpha2 VARCHAR
+country VARCHAR,
+alpha2 VARCHAR
 );
 
-SELECT coffee_production.Country, coffee_production.Year, coffee_production.Total_Production, coffee_production.Exportable_Production, starbucks_locations.Store, starbucks_locations.City 
+SELECT coffee_production.country, coffee_production.year, coffee_production.totalproduction, coffee_production.exportableproduction, starbucks_locations.store, starbucks_locations.city
 FROM coffee_production
 JOIN conversion_table
-	ON coffee_production.Country = conversion_table.Country
+	ON coffee_production.country = conversion_table.country
 JOIN  starbucks_locations 
-	ON conversion_table.Alpha2 = starbucks_locations.Country;
+	ON conversion_table.alpha2 = starbucks_locations.country;
 
